@@ -15,8 +15,10 @@ import javax.persistence.Table;
 @Table(name="personnel")
 public class PersonnelEntity extends AbstractEntity{
     private String nom;
-
-
+    private String prenom;
+    private String fonction;
+    private String identifiant;
+    private String password;
 
     @Override
     public String toString() {

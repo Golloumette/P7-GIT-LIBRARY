@@ -6,19 +6,18 @@ import fr.library.emprunt.service.OuvrageService;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
 
 @Service
 @Transactional
-public class OuvrageServiceImpl implements OuvrageService {
+public class OuvrageServiceImpl extends CrudServiceImpl<OuvrageEntity, Long> implements OuvrageService {
     private final OuvrageRepository ouvrageRepository;
 
     public OuvrageServiceImpl(OuvrageRepository ouvrageRepository) {
         this.ouvrageRepository = ouvrageRepository;
     }
 
-    public List<OuvrageEntity> list(){
-        return ouvrageRepository.findAll();
+    @Override
+    public OuvrageRepository getRepository() {
+        return ouvrageRepository;
     }
-
 }

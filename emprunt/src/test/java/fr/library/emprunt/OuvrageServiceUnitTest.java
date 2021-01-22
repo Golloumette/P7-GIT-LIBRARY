@@ -18,7 +18,7 @@ public class OuvrageServiceUnitTest {
 
     @Test
     public void whenApplicationStarts_thenHibernateCreatesInitialesRecords(){
-        List<OuvrageEntity> ouvrageEntities = ouvrageService.list();
+        List<OuvrageEntity> ouvrageEntities = ouvrageService.findAll();
 
         Assert.assertEquals(ouvrageEntities.size(),1);
     }

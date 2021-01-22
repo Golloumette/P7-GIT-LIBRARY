@@ -1,1 +1,15 @@
+fr\library\emprunt\model\GenreOuvrage.class
+fr\library\emprunt\repository\PersonnelRepository.class
+fr\library\emprunt\model\PersonnelEntity.class
+fr\library\emprunt\model\OuvrageEntity$OuvrageEntityBuilder.class
 fr\library\emprunt\EmpruntApplication.class
+fr\library\emprunt\service\OuvrageService.class
+fr\library\emprunt\model\PersonnelEntity$PersonnelEntityBuilder.class
+fr\library\emprunt\model\UsagerEntity.class
+fr\library\emprunt\controller\OuvrageController.class
+fr\library\emprunt\model\ReservationEntity.class
+fr\library\emprunt\model\AbstractEntity.class
+fr\library\emprunt\model\OuvrageEntity.class
+fr\library\emprunt\repository\OuvrageRepository.class
+fr\library\emprunt\model\TypeOuvrage.class
+fr\library\emprunt\service\impl\OuvrageServiceImpl.class
