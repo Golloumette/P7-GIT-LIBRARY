@@ -1,28 +1,38 @@
 package fr.library.emprunt.model;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "Ouvrage")
+@Table(name = "ouvrage")
 public class OuvrageEntity extends AbstractEntity {
     private String titre;
     private String editeur;
     private LocalDateTime parution;
+    @OneToMany(targetEntity = ReservationEntity.class, mappedBy = "ouvrageEntity",fetch = FetchType.EAGER)
+    private List<ReservationEntity> reservationEntitys;
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "enum('SCIENCE_FICTION', 'SCIENCE_FICTION')")
     private GenreOuvrage genre;
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "enum('REVUE', 'BD')")
     private TypeOuvrage type;
+    @ManyToMany(mappedBy = "ouvrages")
+    private Set<AuteurEntity> auteurs = new HashSet<>();
 
     public OuvrageEntity() {
+    }
+
+    public OuvrageEntity(String titre) {
+        this.titre = titre;
     }
 
     @Override

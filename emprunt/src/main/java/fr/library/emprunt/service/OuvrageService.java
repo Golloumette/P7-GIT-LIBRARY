@@ -4,4 +4,5 @@ import fr.library.emprunt.model.OuvrageEntity;
 
 
 public interface OuvrageService extends CrudService<OuvrageEntity, Long> {
+
 }

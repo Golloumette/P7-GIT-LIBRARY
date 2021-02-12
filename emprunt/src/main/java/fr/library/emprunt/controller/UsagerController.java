@@ -1,7 +1,8 @@
 package fr.library.emprunt.controller;
 
-import fr.library.emprunt.dto.OuvrageDTO;
-import fr.library.emprunt.service.OuvrageService;
+
+import fr.library.emprunt.dto.UsagerDTO;
+import fr.library.emprunt.service.UsagerService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,17 +11,16 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
-@RequestMapping("ouvrages")
-public class OuvrageController {
-    private final OuvrageService ouvrageService;
+@RequestMapping("usager")
+public class UsagerController {
+    private final UsagerService usagerService;
 
-    public OuvrageController(OuvrageService ouvrageService) {
+    public UsagerController(UsagerService usagerService) {
 
-        this.ouvrageService = ouvrageService;
+        this.usagerService = usagerService;
     }
-
     @GetMapping("/")
-    public List<OuvrageDTO> getAll() {
+    public List<UsagerDTO> getAll (){
 
         return Collections.emptyList();
     }
