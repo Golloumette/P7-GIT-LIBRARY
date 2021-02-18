@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 public class OuvrageMapper extends AbstractMapper<OuvrageEntity, OuvrageDTO> {
     @Override
     public OuvrageDTO toDTO(OuvrageEntity entity) {
+
         return null;
     }
 

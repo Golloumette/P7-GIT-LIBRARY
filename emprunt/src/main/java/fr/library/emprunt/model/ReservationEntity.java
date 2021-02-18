@@ -25,6 +25,20 @@ public class ReservationEntity extends AbstractEntity {
 
     }
 
+    public ReservationEntity(OuvrageEntity ouvrageEntity, UsagerEntity usagerEntity, LocalDateTime dtEmprunt, LocalDateTime dtRetour) {
+        this.ouvrageEntity = ouvrageEntity;
+        this.usagerEntity = usagerEntity;
+        this.dtEmprunt = dtEmprunt;
+        this.dtRetour = dtRetour;
+    }
+
+    public ReservationEntity(Long id, OuvrageEntity ouvrageEntity, UsagerEntity usagerEntity, LocalDateTime dtEmprunt, LocalDateTime dtRetour) {
+        super(id);
+        this.ouvrageEntity = ouvrageEntity;
+        this.usagerEntity = usagerEntity;
+        this.dtEmprunt = dtEmprunt;
+        this.dtRetour = dtRetour;
+    }
 
     @Override
     public String toString() {

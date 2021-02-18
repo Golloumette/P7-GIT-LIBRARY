@@ -13,4 +13,19 @@ public class PersonnelDTO extends AbstractDTO {
 
     public PersonnelDTO() {
     }
+
+    public PersonnelDTO(Long id, String nom, String prenom, String fonction, String identifiant) {
+        super(id);
+        this.nom = nom;
+        this.prenom = prenom;
+        this.fonction = fonction;
+        this.identifiant = identifiant;
+    }
+
+    public PersonnelDTO(String nom, String prenom, String fonction, String identifiant) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.fonction = fonction;
+        this.identifiant = identifiant;
+    }
 }

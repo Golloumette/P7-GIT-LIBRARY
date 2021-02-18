@@ -27,7 +27,30 @@ public class UsagerEntity  extends AbstractEntity{
 
     }
 
+    public UsagerEntity(String nom, String prenom, String pseudo, String password, String adresse, String ville, String mail, String telephone, List<ReservationEntity> reservationEntitys) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.pseudo = pseudo;
+        this.password = password;
+        this.adresse = adresse;
+        this.ville = ville;
+        this.mail = mail;
+        this.telephone = telephone;
+        this.reservationEntitys = reservationEntitys;
+    }
 
+    public UsagerEntity(Long id, String nom, String prenom, String pseudo, String password, String adresse, String ville, String mail, String telephone, List<ReservationEntity> reservationEntitys) {
+        super(id);
+        this.nom = nom;
+        this.prenom = prenom;
+        this.pseudo = pseudo;
+        this.password = password;
+        this.adresse = adresse;
+        this.ville = ville;
+        this.mail = mail;
+        this.telephone = telephone;
+        this.reservationEntitys = reservationEntitys;
+    }
 
     @Override
     public String toString() {

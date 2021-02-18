@@ -21,6 +21,24 @@ public class PersonnelEntity extends AbstractEntity{
     public PersonnelEntity(){
 
     }
+
+    public PersonnelEntity(String nom, String prenom, String fonction, String identifiant) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.fonction = fonction;
+        this.identifiant = identifiant;
+
+    }
+
+    public PersonnelEntity(Long id, String nom, String prenom, String fonction, String identifiant) {
+        super(id);
+        this.nom = nom;
+        this.prenom = prenom;
+        this.fonction = fonction;
+        this.identifiant = identifiant;
+
+    }
+
     @Override
     public String toString() {
         return "PersonnelEntity{" +

@@ -35,6 +35,27 @@ public class OuvrageEntity extends AbstractEntity {
         this.titre = titre;
     }
 
+    public OuvrageEntity(String titre, String editeur, LocalDateTime parution, List<ReservationEntity> reservationEntitys, GenreOuvrage genre, TypeOuvrage type, Set<AuteurEntity> auteurs) {
+        this.titre = titre;
+        this.editeur = editeur;
+        this.parution = parution;
+        this.reservationEntitys = reservationEntitys;
+        this.genre = genre;
+        this.type = type;
+        this.auteurs = auteurs;
+    }
+
+    public OuvrageEntity(Long id, String titre, String editeur, LocalDateTime parution, List<ReservationEntity> reservationEntitys, GenreOuvrage genre, TypeOuvrage type, Set<AuteurEntity> auteurs) {
+        super(id);
+        this.titre = titre;
+        this.editeur = editeur;
+        this.parution = parution;
+        this.reservationEntitys = reservationEntitys;
+        this.genre = genre;
+        this.type = type;
+        this.auteurs = auteurs;
+    }
+
     @Override
     public String toString() {
         return "OuvrageEntity{" +

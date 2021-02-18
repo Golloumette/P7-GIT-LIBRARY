@@ -21,4 +21,23 @@ public class OuvrageDTO extends AbstractDTO {
 
     public OuvrageDTO() {
     }
+
+    public OuvrageDTO(Long id, String titre, String editeur, LocalDateTime parution, GenreOuvrage genre, TypeOuvrage type, Set<AuteurDTO> auteurs) {
+        super(id);
+        this.titre = titre;
+        this.editeur = editeur;
+        this.parution = parution;
+        this.genre = genre;
+        this.type = type;
+        this.auteurs = auteurs;
+    }
+
+    public OuvrageDTO(String titre, String editeur, LocalDateTime parution, GenreOuvrage genre, TypeOuvrage type, Set<AuteurDTO> auteurs) {
+        this.titre = titre;
+        this.editeur = editeur;
+        this.parution = parution;
+        this.genre = genre;
+        this.type = type;
+        this.auteurs = auteurs;
+    }
 }
