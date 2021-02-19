@@ -25,6 +25,7 @@ public class ReservationEntity extends AbstractEntity {
 
     }
 
+
     public ReservationEntity(OuvrageEntity ouvrageEntity, UsagerEntity usagerEntity, LocalDateTime dtEmprunt, LocalDateTime dtRetour) {
         this.ouvrageEntity = ouvrageEntity;
         this.usagerEntity = usagerEntity;

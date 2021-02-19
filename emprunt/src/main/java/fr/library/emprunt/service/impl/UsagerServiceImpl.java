@@ -10,7 +10,8 @@ import javax.transaction.Transactional;
 
 @Service
 @Transactional
-public class UsagerServiceImpl extends CrudServiceImpl<UsagerEntity,Long>implements UsagerService {
+public class UsagerServiceImpl extends CrudServiceImpl<UsagerEntity,Long> implements UsagerService {
+
     private final UsagerRepository usagerRepository;
 
     public UsagerServiceImpl(UsagerRepository usagerRepository) {
