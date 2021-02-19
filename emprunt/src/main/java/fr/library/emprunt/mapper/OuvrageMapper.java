@@ -1,6 +1,6 @@
 package fr.library.emprunt.mapper;
 
-import fr.library.emprunt.dto.AbstractDTO;
+
 import fr.library.emprunt.dto.OuvrageDTO;
 import fr.library.emprunt.model.OuvrageEntity;
 import org.springframework.stereotype.Component;
@@ -13,13 +13,11 @@ import java.util.stream.Collectors;
 public class OuvrageMapper extends AbstractMapper<OuvrageEntity, OuvrageDTO> {
     @Override
     public OuvrageDTO toDTO(OuvrageEntity entity) {
-
         return null;
     }
 
     @Override
     public OuvrageEntity toEntity(OuvrageDTO dto) {
-
         return null;
     }
 

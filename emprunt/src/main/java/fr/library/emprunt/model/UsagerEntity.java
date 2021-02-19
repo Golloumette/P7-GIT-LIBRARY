@@ -23,6 +23,9 @@ public class UsagerEntity  extends AbstractEntity{
    /* @OneToMany(targetEntity = ReservationEntity.class,mappedBy = "usagerEntity", fetch = FetchType.EAGER)
     private List<ReservationEntity> reservationEntitys;*/
 
+    public UsagerEntity() {
+    }
+
     public UsagerEntity(Long id, String nom, String prenom, String pseudo, String adresse, String ville, String mail, String telephone) {
 
     }

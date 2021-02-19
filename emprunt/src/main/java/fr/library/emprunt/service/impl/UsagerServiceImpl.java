@@ -20,6 +20,7 @@ public class UsagerServiceImpl extends CrudServiceImpl<UsagerEntity,Long> implem
 
     @Override
     public UsagerRepository getRepository() {
+
         return usagerRepository;
     }
 

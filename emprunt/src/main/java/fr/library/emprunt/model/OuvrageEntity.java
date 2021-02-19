@@ -17,7 +17,8 @@ public class OuvrageEntity extends AbstractEntity {
     private String titre;
     private String editeur;
     private LocalDateTime parution;
-    @OneToMany(targetEntity = ReservationEntity.class, mappedBy = "ouvrageEntity",fetch = FetchType.EAGER)
+    private int exemplaires = 0;
+    @OneToMany(targetEntity = ReservationEntity.class, mappedBy = "ouvrageEntity", fetch = FetchType.EAGER)
     private List<ReservationEntity> reservationEntitys;
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "enum('SCIENCE_FICTION', 'SCIENCE_FICTION')")

@@ -15,8 +15,8 @@ public class ReservationServiceImpl extends CrudServiceImpl<ReservationEntity,Lo
 
     public ReservationServiceImpl (ReservationRepository reservationRepository) {
         this.reservationRepository = reservationRepository;
-
     }
+
     @Override
     public ReservationRepository getRepository(){
 
