@@ -20,8 +20,8 @@ public class UsagerEntity  extends AbstractEntity{
     private String ville;
     private String mail;
     private String telephone;
-   /* @OneToMany(targetEntity = ReservationEntity.class,mappedBy = "usagerEntity", fetch = FetchType.EAGER)
-    private List<ReservationEntity> reservationEntitys;*/
+    @OneToMany(targetEntity = ReservationEntity.class,mappedBy = "usagerEntity", fetch = FetchType.EAGER)
+    private List<ReservationEntity> reservationEntitys;
 
     public UsagerEntity() {
     }
@@ -39,7 +39,7 @@ public class UsagerEntity  extends AbstractEntity{
         this.ville = ville;
         this.mail = mail;
         this.telephone = telephone;
-       // this.reservationEntitys = reservationEntitys;
+        this.reservationEntitys = reservationEntitys;
     }
 
     public UsagerEntity(Long id, String nom, String prenom, String pseudo, String password, String adresse, String ville, String mail, String telephone, List<ReservationEntity> reservationEntitys) {
@@ -52,7 +52,7 @@ public class UsagerEntity  extends AbstractEntity{
         this.ville = ville;
         this.mail = mail;
         this.telephone = telephone;
-      //  this.reservationEntitys = reservationEntitys;
+        this.reservationEntitys = reservationEntitys;
     }
 
     @Override

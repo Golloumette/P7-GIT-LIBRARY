@@ -21,10 +21,10 @@ public class OuvrageEntity extends AbstractEntity {
     @OneToMany(targetEntity = ReservationEntity.class, mappedBy = "ouvrageEntity", fetch = FetchType.EAGER)
     private List<ReservationEntity> reservationEntitys;
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "enum('SCIENCE_FICTION', 'SCIENCE_FICTION')")
+    @Column(columnDefinition = "enum('SCIENCE_FICTION', 'SCIENCE_FICTION'HISTORIQUE','ROMANCE','GUERRE')")
     private GenreOuvrage genre;
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "enum('REVUE', 'BD')")
+    @Column(columnDefinition = "enum('REVUE', 'BD','ROMAN')")
     private TypeOuvrage type;
     @ManyToMany(mappedBy = "ouvrages")
     private Set<AuteurEntity> auteurs = new HashSet<>();

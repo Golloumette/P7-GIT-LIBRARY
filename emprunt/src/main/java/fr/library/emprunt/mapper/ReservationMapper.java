@@ -6,6 +6,12 @@ import fr.library.emprunt.model.OuvrageEntity;
 import fr.library.emprunt.model.ReservationEntity;
 import fr.library.emprunt.model.UsagerEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class ReservationMapper extends AbstractMapper<ReservationEntity, ReservationDTO> {
@@ -17,7 +23,14 @@ public class ReservationMapper extends AbstractMapper<ReservationEntity, Reserva
         }
         String titreOuvrage = entity.getOuvrageEntity() != null ? entity.getOuvrageEntity().getTitre() : null;
         String fullName = entity.getUsagerEntity() != null ? entity.getUsagerEntity().getPrenom() + " " + entity.getUsagerEntity().getNom() : null;
-        return new ReservationDTO(entity.getId(), titreOuvrage, fullName, entity.getDtEmprunt(), entity.getDtRetour());
+        return new ReservationDTO(
+                entity.getId(),
+                titreOuvrage,
+                fullName,
+                entity.getDt_Emprunt(),
+                entity.getDt_Retour()) ;
+
+
     }
 
     @Override
@@ -37,5 +50,11 @@ public class ReservationMapper extends AbstractMapper<ReservationEntity, Reserva
         UsagerEntity usagerEntity = new UsagerEntity();
         usagerEntity.setId(request.getUsagerId());
         return new ReservationEntity(ouvrageEntity, usagerEntity, request.getDateEmprunt(), request.getDateRetour());
+    }
+    List<OuvrageEntity> reservationToNoms(Collection<ReservationEntity> reservations){
+        if(CollectionUtils.isEmpty(reservations)){
+            return Collections.emptyList();
+        }
+        return reservations.stream().map(ReservationEntity::getOuvrageEntity).collect(Collectors.toList());
     }
 }

@@ -6,6 +6,7 @@ import fr.library.emprunt.mapper.UsagerMapper;
 import fr.library.emprunt.model.UsagerEntity;
 import fr.library.emprunt.service.UsagerService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
@@ -27,5 +28,11 @@ public class UsagerController {
         List<UsagerDTO> usagerDTOS = usagerMapper.toDTOs(usagers);
 
         return usagerDTOS;
+    }
+
+    @GetMapping("/{id}")
+    public  UsagerDTO getOne (@PathVariable("id") Long usagerId){
+        UsagerEntity entity = usagerService.getOne(usagerId);
+        return usagerMapper.toDTO(entity);
     }
 }
