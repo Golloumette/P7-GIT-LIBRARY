@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,7 +16,7 @@ import java.util.Set;
 public class OuvrageEntity extends AbstractEntity {
     private String titre;
     private String editeur;
-    private LocalDateTime parution;
+    private LocalDate parution;
     private int exemplaires = 0;
     @OneToMany(targetEntity = ReservationEntity.class, mappedBy = "ouvrageEntity", fetch = FetchType.EAGER)
     private List<ReservationEntity> reservationEntitys;
@@ -36,7 +36,7 @@ public class OuvrageEntity extends AbstractEntity {
         this.titre = titre;
     }
 
-    public OuvrageEntity(String titre, String editeur, LocalDateTime parution, List<ReservationEntity> reservationEntitys, GenreOuvrage genre, TypeOuvrage type, Set<AuteurEntity> auteurs) {
+    public OuvrageEntity(String titre, String editeur, LocalDate parution, List<ReservationEntity> reservationEntitys, GenreOuvrage genre, TypeOuvrage type, Set<AuteurEntity> auteurs) {
         this.titre = titre;
         this.editeur = editeur;
         this.parution = parution;
@@ -46,7 +46,7 @@ public class OuvrageEntity extends AbstractEntity {
         this.auteurs = auteurs;
     }
 
-    public OuvrageEntity(Long id, String titre, String editeur, LocalDateTime parution, List<ReservationEntity> reservationEntitys, GenreOuvrage genre, TypeOuvrage type, Set<AuteurEntity> auteurs) {
+    public OuvrageEntity(Long id, String titre, String editeur, LocalDate parution, List<ReservationEntity> reservationEntitys, GenreOuvrage genre, TypeOuvrage type, Set<AuteurEntity> auteurs) {
         super(id);
         this.titre = titre;
         this.editeur = editeur;

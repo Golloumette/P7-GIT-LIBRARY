@@ -5,24 +5,25 @@ import fr.library.emprunt.model.TypeOuvrage;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
 public class OuvrageDTO extends AbstractDTO {
     private String titre;
     private String editeur;
-    private LocalDateTime parution;
+    private LocalDate parution;
     private GenreOuvrage genre;
     private TypeOuvrage type;
-    private Set<AuteurDTO> auteurs = new HashSet<>();
+    private List<String> auteurs;
+
 
     public OuvrageDTO() {
+
     }
 
-    public OuvrageDTO(Long id, String titre, String editeur, LocalDateTime parution, GenreOuvrage genre, TypeOuvrage type, Set<AuteurDTO> auteurs) {
+    public OuvrageDTO(Long id, String titre, String editeur, LocalDate parution, GenreOuvrage genre, TypeOuvrage type, List<String> auteurs) {
         super(id);
         this.titre = titre;
         this.editeur = editeur;
@@ -32,7 +33,7 @@ public class OuvrageDTO extends AbstractDTO {
         this.auteurs = auteurs;
     }
 
-    public OuvrageDTO(String titre, String editeur, LocalDateTime parution, GenreOuvrage genre, TypeOuvrage type, Set<AuteurDTO> auteurs) {
+    public OuvrageDTO(String titre, String editeur, LocalDate parution, GenreOuvrage genre, TypeOuvrage type, List<String> auteurs) {
         this.titre = titre;
         this.editeur = editeur;
         this.parution = parution;

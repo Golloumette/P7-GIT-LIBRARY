@@ -27,8 +27,8 @@ public class ReservationMapper extends AbstractMapper<ReservationEntity, Reserva
                 entity.getId(),
                 titreOuvrage,
                 fullName,
-                entity.getDt_Emprunt(),
-                entity.getDt_Retour()) ;
+                entity.getDtEmprunt(),
+                entity.getDtRetour()) ;
 
 
     }
@@ -49,7 +49,14 @@ public class ReservationMapper extends AbstractMapper<ReservationEntity, Reserva
         ouvrageEntity.setId(request.getOuvrageId());
         UsagerEntity usagerEntity = new UsagerEntity();
         usagerEntity.setId(request.getUsagerId());
-        return new ReservationEntity(ouvrageEntity, usagerEntity, request.getDateEmprunt(), request.getDateRetour());
+        return new ReservationEntity(ouvrageEntity, usagerEntity, request.getDtEmprunt(), request.getDtRetour());
+    }
+    public ReservationEntity toDate(ReservationRequest request){
+        if (request == null) {
+
+        }
+
+        return new ReservationEntity(request.getDtRetour());
     }
     List<OuvrageEntity> reservationToNoms(Collection<ReservationEntity> reservations){
         if(CollectionUtils.isEmpty(reservations)){

@@ -2,7 +2,7 @@ package fr.library.emprunt.dto;
 
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 
 @Getter
@@ -13,6 +13,6 @@ import java.time.LocalDateTime;
 public class ReservationRequest {
     private long ouvrageId;
     private long usagerId;
-    private LocalDateTime dateEmprunt;
-    private LocalDateTime dateRetour;
+    private LocalDate dtEmprunt;
+    private LocalDate dtRetour;
 }

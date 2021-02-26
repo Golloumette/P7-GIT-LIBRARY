@@ -39,4 +39,12 @@ public class ReservationController {
         return reservationMapper.toDTO(entity);
     }
 
+    @PatchMapping("/{id}")
+    public ReservationDTO updateById(@PathVariable("id") Long reservationId, @RequestBody RetourReservationRequest request) {
+        ReservationEntity entity = reservationService.getOne(reservationId);
+        entity.setDtRetour(request.getDateRetour());
+        reservationService.save(entity);
+        return reservationMapper.toDTO(entity);
+    }
+
 }
