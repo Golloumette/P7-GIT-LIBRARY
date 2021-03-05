@@ -12,8 +12,27 @@ public class ReservationDTO extends AbstractDTO {
     private String usager;
     private LocalDate dtEmprunt;
     private LocalDate dtRetour;
+    private Long prevReservationId;
+
 
     public ReservationDTO() {
+    }
+
+    public ReservationDTO(Long id, String ouvrage, String usager, LocalDate dtEmprunt, LocalDate dtRetour, Long prevReservationId) {
+        super(id);
+        this.ouvrage = ouvrage;
+        this.usager = usager;
+        this.dtEmprunt = dtEmprunt;
+        this.dtRetour = dtRetour;
+        this.prevReservationId = prevReservationId;
+    }
+
+    public ReservationDTO(String ouvrage, String usager, LocalDate dtEmprunt, LocalDate dtRetour, Long prevReservationId) {
+        this.ouvrage = ouvrage;
+        this.usager = usager;
+        this.dtEmprunt = dtEmprunt;
+        this.dtRetour = dtRetour;
+        this.prevReservationId = prevReservationId;
     }
 
     public ReservationDTO(Long id, String ouvrage, String usager, LocalDate dtEmprunt, LocalDate dtRetour) {

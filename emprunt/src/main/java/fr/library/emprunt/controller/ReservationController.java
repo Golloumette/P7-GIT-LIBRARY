@@ -2,6 +2,7 @@ package fr.library.emprunt.controller;
 
 
 import fr.library.emprunt.dto.ReservationDTO;
+import fr.library.emprunt.dto.ReservationProlRequest;
 import fr.library.emprunt.dto.ReservationRequest;
 import fr.library.emprunt.mapper.ReservationMapper;
 import fr.library.emprunt.model.ReservationEntity;
@@ -9,6 +10,7 @@ import fr.library.emprunt.service.ReservationService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 // suivre reservation+mettre a jour reservation
 @RestController
 @RequestMapping("reservations")
@@ -45,6 +47,11 @@ public class ReservationController {
         entity.setDtRetour(request.getDateRetour());
         reservationService.save(entity);
         return reservationMapper.toDTO(entity);
+    }
+
+    @PostMapping("/prolonger/{id}")
+    public ReservationDTO prolongationById(@PathVariable("id") Long reservationId) {
+        return reservationMapper.toDTO(reservationService.prolonger(reservationId));
     }
 
 }

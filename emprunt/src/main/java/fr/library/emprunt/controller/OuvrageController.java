@@ -4,7 +4,9 @@ import fr.library.emprunt.dto.OuvrageDTO;
 import fr.library.emprunt.mapper.OuvrageMapper;
 import fr.library.emprunt.model.OuvrageEntity;
 import fr.library.emprunt.service.OuvrageService;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,4 +31,11 @@ public class OuvrageController {
     List<OuvrageDTO> ouvrageDTOS = ouvrageMapper.toDTOs(ouvrages);
         return ouvrageDTOS;
     }
+    @GetMapping("/{search}")
+    public List<OuvrageDTO> search (@PathVariable("search") String search) {
+            List<OuvrageEntity> ouvrages = ouvrageService.findBySearch(search);
+            return ouvrageMapper.toDTOs(ouvrages);
+    }
+
+
 }

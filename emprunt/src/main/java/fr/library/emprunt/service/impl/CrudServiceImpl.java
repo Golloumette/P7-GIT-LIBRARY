@@ -113,4 +113,5 @@ public abstract class CrudServiceImpl<T extends AbstractEntity, ID> implements C
     public void deleteAll() {
         getRepository().deleteAll();
     }
+
 }

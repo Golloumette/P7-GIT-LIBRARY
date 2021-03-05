@@ -13,21 +13,34 @@ import java.util.stream.Collectors;
 @Component
 public class OuvrageMapper extends AbstractMapper<OuvrageEntity, OuvrageDTO> {
 
+
     @Override
     public OuvrageDTO toDTO(OuvrageEntity ouvrage) {
-        return ouvrage == null ?
-                null : new OuvrageDTO(
-                        ouvrage.getId(),
-                ouvrage.getTitre(),
-                ouvrage.getEditeur(),
-                ouvrage.getParution(),
-                ouvrage.getGenre(),
-                ouvrage.getType(),
-                nomAuteurs(ouvrage));
+        if (ouvrage == null) {
+            return null;
+        }
+
+        OuvrageDTO ouvrageDTO = new OuvrageDTO();
+        ouvrageDTO.setId(ouvrage.getId());
+        ouvrageDTO.setTitre(ouvrage.getTitre());
+        ouvrageDTO.setEditeur(ouvrage.getEditeur());
+        ouvrageDTO.setParution(ouvrage.getParution());
+        ouvrageDTO.setExemplaires(ouvrage.getExemplaires());
+        ouvrageDTO.setGenre(ouvrage.getGenre());
+        ouvrageDTO.setType(ouvrage.getType());
+        ouvrageDTO.setAuteurs(nomAuteurs(ouvrage));
+        return ouvrageDTO;
     }
 
+        /*
+        public OuvrageDTO titre(OuvrageEntity ouvrage){
+        return ouvrage == null ?
+                null : new OuvrageDTO(ouvrage.getTitre());
+    }*/
+
     /**
-     * Récupère la liste des noms d'autreus d'un ouvrage
+     * Récupère la liste des noms d'auteurs d'un ouvrage
+     *
      * @param ouvrage l'ouvrage dont ont souhaite avoir la liste des noms d'auteurs
      * @return La liste des noms d'auteurs de l'ouvrage passé en param
      */
@@ -43,14 +56,14 @@ public class OuvrageMapper extends AbstractMapper<OuvrageEntity, OuvrageDTO> {
         return null;
     }
 
-    List<String> ouvragesToNoms(Collection<OuvrageEntity> ouvrages) {
+    public List<String> ouvragesToNoms(Collection<OuvrageEntity> ouvrages) {
         if (CollectionUtils.isEmpty(ouvrages)) {
             return Collections.emptyList();
         }
         return ouvrages.stream().map(OuvrageEntity::getTitre).collect(Collectors.toList());
     }
 
-    Set<OuvrageEntity> nomsToOuvrages(Collection<String> titles) {
+    public Set<OuvrageEntity> nomsToOuvrages(Collection<String> titles) {
         if (CollectionUtils.isEmpty(titles)) {
             return Collections.emptySet();
         }

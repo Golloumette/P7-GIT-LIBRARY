@@ -30,4 +30,6 @@ public interface CrudService<T extends AbstractEntity, ID> {
     void delete(T entity);
     void deleteAll(Iterable<? extends T> entities);
     void deleteAll();
+
+
 }

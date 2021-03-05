@@ -29,28 +29,32 @@ public class OuvrageEntity extends AbstractEntity {
     @ManyToMany(mappedBy = "ouvrages")
     private Set<AuteurEntity> auteurs = new HashSet<>();
 
+
     public OuvrageEntity() {
     }
 
     public OuvrageEntity(String titre) {
+
         this.titre = titre;
     }
 
-    public OuvrageEntity(String titre, String editeur, LocalDate parution, List<ReservationEntity> reservationEntitys, GenreOuvrage genre, TypeOuvrage type, Set<AuteurEntity> auteurs) {
+    public OuvrageEntity(String titre, String editeur, LocalDate parution,int exemplaires, List<ReservationEntity> reservationEntitys, GenreOuvrage genre, TypeOuvrage type, Set<AuteurEntity> auteurs) {
         this.titre = titre;
         this.editeur = editeur;
         this.parution = parution;
+        this.exemplaires = exemplaires;
         this.reservationEntitys = reservationEntitys;
         this.genre = genre;
         this.type = type;
         this.auteurs = auteurs;
     }
 
-    public OuvrageEntity(Long id, String titre, String editeur, LocalDate parution, List<ReservationEntity> reservationEntitys, GenreOuvrage genre, TypeOuvrage type, Set<AuteurEntity> auteurs) {
+    public OuvrageEntity(Long id, String titre, String editeur, LocalDate parution,int exemplaires, List<ReservationEntity> reservationEntitys, GenreOuvrage genre, TypeOuvrage type, Set<AuteurEntity> auteurs) {
         super(id);
         this.titre = titre;
         this.editeur = editeur;
         this.parution = parution;
+        this.exemplaires = exemplaires;
         this.reservationEntitys = reservationEntitys;
         this.genre = genre;
         this.type = type;

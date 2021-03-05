@@ -1,6 +1,7 @@
 package fr.library.emprunt.mapper;
 
 import fr.library.emprunt.dto.ReservationDTO;
+import fr.library.emprunt.dto.ReservationProlRequest;
 import fr.library.emprunt.dto.ReservationRequest;
 import fr.library.emprunt.model.OuvrageEntity;
 import fr.library.emprunt.model.ReservationEntity;
@@ -23,14 +24,14 @@ public class ReservationMapper extends AbstractMapper<ReservationEntity, Reserva
         }
         String titreOuvrage = entity.getOuvrageEntity() != null ? entity.getOuvrageEntity().getTitre() : null;
         String fullName = entity.getUsagerEntity() != null ? entity.getUsagerEntity().getPrenom() + " " + entity.getUsagerEntity().getNom() : null;
-        return new ReservationDTO(
+        ReservationDTO reservationDTO = new ReservationDTO(
                 entity.getId(),
                 titreOuvrage,
                 fullName,
                 entity.getDtEmprunt(),
-                entity.getDtRetour()) ;
-
-
+                entity.getDtRetour());
+        reservationDTO.setPrevReservationId(entity.getPrevReservationId());
+        return reservationDTO;
     }
 
     @Override
@@ -51,15 +52,29 @@ public class ReservationMapper extends AbstractMapper<ReservationEntity, Reserva
         usagerEntity.setId(request.getUsagerId());
         return new ReservationEntity(ouvrageEntity, usagerEntity, request.getDtEmprunt(), request.getDtRetour());
     }
-    public ReservationEntity toDate(ReservationRequest request){
+
+    public ReservationEntity toEntity(ReservationProlRequest request) {
+        if (request == null) {
+            return null;
+        }
+
+        OuvrageEntity ouvrageEntity = new OuvrageEntity();
+        ouvrageEntity.setId(request.getOuvrageId());
+        UsagerEntity usagerEntity = new UsagerEntity();
+        usagerEntity.setId(request.getUsagerId());
+        return new ReservationEntity(ouvrageEntity, usagerEntity, request.getDtEmprunt(), request.getDtRetour(), request.getPrevReservationId());
+    }
+
+    public ReservationEntity toDate(ReservationRequest request) {
         if (request == null) {
 
         }
 
         return new ReservationEntity(request.getDtRetour());
     }
-    List<OuvrageEntity> reservationToNoms(Collection<ReservationEntity> reservations){
-        if(CollectionUtils.isEmpty(reservations)){
+
+    List<OuvrageEntity> reservationToNoms(Collection<ReservationEntity> reservations) {
+        if (CollectionUtils.isEmpty(reservations)) {
             return Collections.emptyList();
         }
         return reservations.stream().map(ReservationEntity::getOuvrageEntity).collect(Collectors.toList());
