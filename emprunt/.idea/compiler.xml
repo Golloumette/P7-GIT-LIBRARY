@@ -7,16 +7,26 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="emprunt" />
+        <module name="batch" />
+        <module name="service" />
+        <module name="api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="api" target="11" />
+      <module name="batch" target="11" />
+      <module name="batch emprunt" target="1.7" />
       <module name="emprunt" target="1.8" />
+      <module name="service" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api" options="-parameters" />
+      <module name="batch" options="-parameters" />
+      <module name="batch emprunt" options="-parameters" />
       <module name="emprunt" options="-parameters" />
+      <module name="service" options="-parameters" />
     </option>
   </component>
 </project>
