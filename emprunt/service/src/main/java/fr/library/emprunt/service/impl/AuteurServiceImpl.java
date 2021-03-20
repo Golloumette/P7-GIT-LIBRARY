@@ -18,7 +18,6 @@ public class AuteurServiceImpl extends CrudServiceImpl<AuteurEntity,Long> implem
 
     @Override
     public AuteurRepository getRepository(){
-
         return auteurRepository;
     }
 }
