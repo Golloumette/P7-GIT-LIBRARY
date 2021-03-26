@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  mariadb:
+    image: mariadb:10.2
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: library
+      MYSQL_USER: root
+      MYSQL_PASSWORD: changeme
+    ports:
+    - "3307:3306"
+    networks:
+      - database
+    restart: on-failure
+    volumes:
+      - ${PWD}/mariadb:/var/lib/mysql
+networks:
+  database:
+    driver: bridge
