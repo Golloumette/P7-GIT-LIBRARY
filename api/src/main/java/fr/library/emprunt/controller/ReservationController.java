@@ -52,5 +52,8 @@ public class ReservationController {
     public ReservationDTO prolongationById(@PathVariable("id") Long reservationId) {
         return reservationMapper.toDTO(reservationService.prolonger(reservationId));
     }
-
+    @GetMapping("/rappel/")
+    public List<ReservationDTO> rappel(){
+        return reservationMapper.toDTOs(reservationService.getReservationARelancer());
+    }
 }

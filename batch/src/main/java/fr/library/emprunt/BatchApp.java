@@ -8,6 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 public class BatchApp {
     public static void main(String[] args) {
+
         SpringApplication.run(BatchApp.class, args);
     }
 }

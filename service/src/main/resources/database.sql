@@ -160,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `reservation`
     `id`                  bigint(11) NOT NULL AUTO_INCREMENT,
     `usager_id`           bigint(20) NOT NULL,
     `ouvrage_id`          bigint(20) NOT NULL,
-    `dt_emprunt`          date       DEFAULT NULL,
+    `dt_emprunt`          date       NOT NULL,
     `dt_retour`           date       DEFAULT NULL,
     `prev_reservation_id` bigint(20) DEFAULT NULL,
     PRIMARY KEY (`id`),

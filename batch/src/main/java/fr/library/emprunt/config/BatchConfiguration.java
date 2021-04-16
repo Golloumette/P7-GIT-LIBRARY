@@ -10,9 +10,13 @@ import org.springframework.batch.core.configuration.annotation.EnableBatchProces
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
+import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.database.JdbcPagingItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.sql.DataSource;
 
 @Configuration
 @EnableBatchProcessing
@@ -23,18 +27,35 @@ public class BatchConfiguration {
     @Autowired
     public StepBuilderFactory stepBuilderFactory;
 
+    @Autowired
+    private DataSource dataSource;
+
     @Bean
     ReservationReader reader() {
         return new ReservationReader();
     }
 
+    //methode caro
+   /* @Bean
+    public ItemReader<ReservationEntity> reservationItemReader(){
+        JdbcPagingItemReader<ReservationEntity>reader = new JdbcPagingItemReader<>();
+        reader.setDataSource(dataSource);
+        reader.setFetchSize(100);
+        reader.setPageSize(100);
+
+
+        return reader;
+    }*/
+
     @Bean
     ReservationProcesor procesor() {
+
         return new ReservationProcesor();
     }
 
     @Bean
     ReservationWriter writer() {
+
         return new ReservationWriter();
     }
 
