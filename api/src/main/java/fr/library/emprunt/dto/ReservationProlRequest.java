@@ -16,5 +16,5 @@ public class ReservationProlRequest {
     private long usagerId;
     private LocalDate dtEmprunt;
     private LocalDate dtRetour;
-    private Long prevReservationId ;
+    private Long prevReservationId;
 }

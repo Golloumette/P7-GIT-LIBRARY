@@ -9,15 +9,15 @@ import javax.transaction.Transactional;
 
 @Service
 @Transactional
-public class AuteurServiceImpl extends CrudServiceImpl<AuteurEntity,Long> implements AuteurService {
+public class AuteurServiceImpl extends CrudServiceImpl<AuteurEntity, Long> implements AuteurService {
     private final AuteurRepository auteurRepository;
 
-    public AuteurServiceImpl (AuteurRepository auteurRepository){
+    public AuteurServiceImpl(AuteurRepository auteurRepository) {
         this.auteurRepository = auteurRepository;
     }
 
     @Override
-    public AuteurRepository getRepository(){
+    public AuteurRepository getRepository() {
         return auteurRepository;
     }
 }

@@ -4,14 +4,17 @@ package fr.library.emprunt.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.List;
 
 @Getter
 @Setter
 @Entity
-@Table(name="usager")
-public class UsagerEntity  extends AbstractEntity{
+@Table(name = "usager")
+public class UsagerEntity extends AbstractEntity {
     private String nom;
     private String prenom;
     private String pseudo;
@@ -20,7 +23,7 @@ public class UsagerEntity  extends AbstractEntity{
     private String ville;
     private String mail;
     private String telephone;
-    @OneToMany(targetEntity = ReservationEntity.class,mappedBy = "usagerEntity", fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = ReservationEntity.class, mappedBy = "usagerEntity", fetch = FetchType.EAGER)
     private List<ReservationEntity> reservationEntitys;
 
     public UsagerEntity() {

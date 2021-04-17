@@ -7,9 +7,10 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 public class EmpruntApplication {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		SpringApplication.run(EmpruntApplication.class, args);
-	}
+        SpringApplication.run(EmpruntApplication.class, args);
+
+    }
 
 }

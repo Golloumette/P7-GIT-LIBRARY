@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
 @RestController
@@ -22,8 +23,9 @@ public class UsagerController {
         this.usagerService = usagerService;
         this.usagerMapper = usagerMapper;
     }
+
     @GetMapping("/")
-    public List<UsagerDTO> getAll (){
+    public List<UsagerDTO> getAll() {
         List<UsagerEntity> usagers = usagerService.findAll();
         List<UsagerDTO> usagerDTOS = usagerMapper.toDTOs(usagers);
 
@@ -31,7 +33,7 @@ public class UsagerController {
     }
 
     @GetMapping("/{id}")
-    public  UsagerDTO getOne (@PathVariable("id") Long usagerId){
+    public UsagerDTO getOne(@PathVariable("id") Long usagerId) {
         UsagerEntity entity = usagerService.getOne(usagerId);
         return usagerMapper.toDTO(entity);
     }

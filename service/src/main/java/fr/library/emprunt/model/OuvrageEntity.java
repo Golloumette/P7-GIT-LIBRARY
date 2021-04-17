@@ -38,7 +38,7 @@ public class OuvrageEntity extends AbstractEntity {
         this.titre = titre;
     }
 
-    public OuvrageEntity(String titre, String editeur, LocalDate parution,int exemplaires, List<ReservationEntity> reservationEntitys, GenreOuvrage genre, TypeOuvrage type, Set<AuteurEntity> auteurs) {
+    public OuvrageEntity(String titre, String editeur, LocalDate parution, int exemplaires, List<ReservationEntity> reservationEntitys, GenreOuvrage genre, TypeOuvrage type, Set<AuteurEntity> auteurs) {
         this.titre = titre;
         this.editeur = editeur;
         this.parution = parution;
@@ -49,7 +49,7 @@ public class OuvrageEntity extends AbstractEntity {
         this.auteurs = auteurs;
     }
 
-    public OuvrageEntity(Long id, String titre, String editeur, LocalDate parution,int exemplaires, List<ReservationEntity> reservationEntitys, GenreOuvrage genre, TypeOuvrage type, Set<AuteurEntity> auteurs) {
+    public OuvrageEntity(Long id, String titre, String editeur, LocalDate parution, int exemplaires, List<ReservationEntity> reservationEntitys, GenreOuvrage genre, TypeOuvrage type, Set<AuteurEntity> auteurs) {
         super(id);
         this.titre = titre;
         this.editeur = editeur;

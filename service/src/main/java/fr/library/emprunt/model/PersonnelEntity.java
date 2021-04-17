@@ -10,15 +10,15 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Table(name="Personnel")
-public class PersonnelEntity extends AbstractEntity{
+@Table(name = "Personnel")
+public class PersonnelEntity extends AbstractEntity {
     private String nom;
     private String prenom;
     private String fonction;
     private String identifiant;
     private String password;
 
-    public PersonnelEntity(){
+    public PersonnelEntity() {
 
     }
 

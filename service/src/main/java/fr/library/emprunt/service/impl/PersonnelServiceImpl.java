@@ -9,14 +9,15 @@ import javax.transaction.Transactional;
 
 @Service
 @Transactional
-public class PersonnelServiceImpl extends CrudServiceImpl<PersonnelEntity,Long> implements PersonnelService {
+public class PersonnelServiceImpl extends CrudServiceImpl<PersonnelEntity, Long> implements PersonnelService {
     private final PersonnelRepository personnelRepository;
 
     public PersonnelServiceImpl(PersonnelRepository personnelRepository) {
-        this.personnelRepository = personnelRepository;}
+        this.personnelRepository = personnelRepository;
+    }
 
     @Override
-    public PersonnelRepository getRepository(){
+    public PersonnelRepository getRepository() {
 
         return personnelRepository;
     }

@@ -14,7 +14,7 @@ public class UsagerMapper extends AbstractMapper<UsagerEntity, UsagerDTO> {
     }
 
     @Override
-    public UsagerDTO toDTO (UsagerEntity entity){
+    public UsagerDTO toDTO(UsagerEntity entity) {
         //ajout get entitity reservation
         return entity == null ? null : new UsagerDTO(entity.getId(),
                 entity.getNom(),

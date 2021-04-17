@@ -25,14 +25,15 @@ public class OuvrageController {
 
     @GetMapping("/")
     public List<OuvrageDTO> getAll() {
-    List<OuvrageEntity> ouvrages = ouvrageService.findAll();
-    List<OuvrageDTO> ouvrageDTOS = ouvrageMapper.toDTOs(ouvrages);
+        List<OuvrageEntity> ouvrages = ouvrageService.findAll();
+        List<OuvrageDTO> ouvrageDTOS = ouvrageMapper.toDTOs(ouvrages);
         return ouvrageDTOS;
     }
+
     @GetMapping("/{search}")
-    public List<OuvrageDTO> search (@PathVariable("search") String search) {
-            List<OuvrageEntity> ouvrages = ouvrageService.findBySearch(search);
-            return ouvrageMapper.toDTOs(ouvrages);
+    public List<OuvrageDTO> search(@PathVariable("search") String search) {
+        List<OuvrageEntity> ouvrages = ouvrageService.findBySearch(search);
+        return ouvrageMapper.toDTOs(ouvrages);
     }
 
 

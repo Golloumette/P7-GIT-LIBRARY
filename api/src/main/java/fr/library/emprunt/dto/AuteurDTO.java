@@ -22,7 +22,7 @@ public class AuteurDTO extends AbstractDTO {
         this.prenom = prenom;
     }
 
-    public AuteurDTO(Long id, String nom, String prenom,  List<String> ouvrages) {
+    public AuteurDTO(Long id, String nom, String prenom, List<String> ouvrages) {
         super(id);
         this.nom = nom;
         this.prenom = prenom;

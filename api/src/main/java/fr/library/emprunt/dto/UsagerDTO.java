@@ -5,7 +5,6 @@ import fr.library.emprunt.model.ReservationEntity;
 import lombok.Getter;
 import lombok.Setter;
 
-
 import java.util.List;
 
 @Getter
@@ -57,7 +56,7 @@ public class UsagerDTO extends AbstractDTO {
         this.reservationEntitys = reservationEntitys;
     }
 
-    public UsagerDTO(String nom, String prenom, String pseudo,  String adresse, String ville, String mail, String telephone, List<ReservationEntity> reservationEntitys) {
+    public UsagerDTO(String nom, String prenom, String pseudo, String adresse, String ville, String mail, String telephone, List<ReservationEntity> reservationEntitys) {
         this.nom = nom;
         this.prenom = prenom;
         this.pseudo = pseudo;

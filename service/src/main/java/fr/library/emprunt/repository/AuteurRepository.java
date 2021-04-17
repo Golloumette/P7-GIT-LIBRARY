@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface AuteurRepository extends JpaRepository<AuteurEntity,Long> {
+public interface AuteurRepository extends JpaRepository<AuteurEntity, Long> {
     @Override
     @Query("select a from AuteurEntity a left join fetch a.ouvrages o left join fetch o.reservationEntitys r")
     List<AuteurEntity> findAll();

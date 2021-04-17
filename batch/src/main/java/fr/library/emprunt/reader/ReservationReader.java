@@ -17,11 +17,17 @@ public class ReservationReader implements ItemReader<ReservationEntity> {
 
     private Iterator<ReservationEntity> reservationIterator;
 
+
+
     @Override
     public ReservationEntity read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
-        if (reservationIterator != null && reservationIterator.hasNext()) {
+        if (reservationIterator == null) {
+            reservationIterator = service.getReservationARelancer().iterator();
+        }
+        if (reservationIterator.hasNext()) {
             return reservationIterator.next();
         }
+
         return null;
     }
 }

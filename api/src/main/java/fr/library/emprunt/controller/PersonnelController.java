@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import java.util.List;
 
 @RestController
@@ -25,9 +24,9 @@ public class PersonnelController {
     }
 
     @GetMapping("/")
-    public List<PersonnelDTO> getAll(){
+    public List<PersonnelDTO> getAll() {
         List<PersonnelEntity> personnels = personnelService.findAll();
         List<PersonnelDTO> personnelDTOS = personnelMapper.toDTOs(personnels);
-       return personnelDTOS ;
+        return personnelDTOS;
     }
 }

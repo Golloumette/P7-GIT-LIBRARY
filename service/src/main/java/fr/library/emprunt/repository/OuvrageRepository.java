@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface OuvrageRepository extends JpaRepository<OuvrageEntity, Long>, JpaSpecificationExecutor<OuvrageEntity> {
     @Query("select distinct o from OuvrageEntity o left join fetch o.auteurs a left join fetch o.reservationEntitys r")
-   // @Query("select o from OuvrageEntity o left join fetch o.auteurs a left join fetch o.reservationEntitys r")
+        // @Query("select o from OuvrageEntity o left join fetch o.auteurs a left join fetch o.reservationEntitys r")
     List<OuvrageEntity> findAll();
 
 

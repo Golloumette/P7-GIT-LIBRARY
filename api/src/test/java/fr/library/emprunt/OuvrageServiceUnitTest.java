@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
 import java.util.List;
 
 @SpringBootTest
@@ -17,10 +16,10 @@ public class OuvrageServiceUnitTest {
     private OuvrageService ouvrageService;
 
     @Test
-    public void whenApplicationStarts_thenHibernateCreatesInitialesRecords(){
+    public void whenApplicationStarts_thenHibernateCreatesInitialesRecords() {
         List<OuvrageEntity> ouvrageEntities = ouvrageService.findAll();
 
-        Assert.assertEquals(ouvrageEntities.size(),1);
+        Assert.assertEquals(ouvrageEntities.size(), 1);
     }
 
 }
