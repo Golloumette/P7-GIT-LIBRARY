@@ -1,0 +1,32 @@
+######DataSource Config #####
+server:
+  port: 8081
+spring:
+  #library properties
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: MARIA
+    url: jdbc:mysql://localhost:3307/library?createDatabaseIfNotExist=true
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  #hibernate
+  show-sql: true
+  hibernate:
+    ddl-auto: validate
+#envoie mail
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: golloumette59@gmail.com
+    password: ebqvcepscyknggqr
+    properties:
+      mail:
+        smtp:
+          auth: true
+        starttls:
+          enable: true
+springdoc:
+  package-to-scan: fr.library.emprunt
